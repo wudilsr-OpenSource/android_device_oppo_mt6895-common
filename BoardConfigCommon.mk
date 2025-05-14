@@ -6,8 +6,8 @@
 
 BUILD_BROKEN_DUP_RULES := true
 
-DEVICE_PATH := device/realme/lisaa
-KERNEL_PATH := $(DEVICE_PATH)-kernel
+COMMON_PATH := device/oppo/mt6895-common
+KERNEL_PATH := device/oppo/mt6895-kernel
 
 # Architecture
 TARGET_ARCH := arm64
@@ -22,19 +22,13 @@ TARGET_BOOTLOADER_BOARD_NAME := k6895v1_64
 TARGET_USES_UEFI := true
 TARGET_NO_BOOTLOADER := true
 
-# Display
-TARGET_SCREEN_DENSITY := 480
-
-# FOD
-TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oplus:libudfps_extension.oplus
-
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    $(DEVICE_PATH)/device_framework_matrix.xml \
+    $(COMMON_PATH)/device_framework_matrix.xml \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
-ODM_MANIFEST_FILES += $(DEVICE_PATH)/manifest_odm.xml
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
+DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
+ODM_MANIFEST_FILES += $(COMMON_PATH)/manifest_odm.xml
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 4
@@ -74,7 +68,7 @@ TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/$(BOARD_KERNEL_IMAGE_NAME)
 TARGET_FORCE_PREBUILT_KERNEL := true
 
 TARGET_NO_KERNEL_OVERRIDE := true
-TARGET_KERNEL_SOURCE := device/realme/lisaa-kernel/kernel-headers
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
 #TARGET_KERNEL_SOURCE := kernel/mediatek/k510
 #TARGET_KERNEL_CONFIG := \
@@ -154,11 +148,11 @@ BOARD_HAS_MTK_HARDWARE := true
 TARGET_BOARD_PLATFORM := mt6895
 
 # Power
-TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(DEVICE_PATH)/power:libperfmgr-ext-lisaa
+TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(COMMON_PATH)/power:libperfmgr-ext-mt6895
 
 # Recovery
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.mt6895
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/init/fstab.mt6895
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE :=
 TARGET_USERIMAGES_USE_F2FS := true
@@ -214,4 +208,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_FEATURE_HOSTAPD_11AX := true
 
 # Inherit the proprietary files
-include vendor/realme/lisaa/BoardConfigVendor.mk
+include vendor/oppo/mt6895-common/BoardConfigVendor.mk

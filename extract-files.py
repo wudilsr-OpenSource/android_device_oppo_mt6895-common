@@ -20,7 +20,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/realme/lisaa',
+    'device/oppo/mt6895-common',
     'hardware/mediatek',
     'hardware/mediatek/libmtkperf_client',
     'hardware/oplus',
@@ -86,8 +86,8 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'lisaa',
-    'realme',
+    'mt6895-common',
+    'oppo',
     add_firmware_proprietary_file=True,
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
