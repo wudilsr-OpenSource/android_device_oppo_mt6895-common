@@ -278,6 +278,10 @@ PRODUCT_PACKAGES += \
     sensors.dynamic_sensor_hal \
     sensors.oplus
 
+PRODUCT_PACKAGES += \
+    libshim_sensors \
+    libshim_sink
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
