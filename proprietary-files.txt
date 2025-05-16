@@ -1187,7 +1187,7 @@ vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so;FIX_SONAME
 vendor/lib64/libnpagent_server.so
 vendor/lib64/libtflite_mtk.so;DISABLE_CHECKELF
 vendor/lib64/libvpu.so
-vendor/lib64/mt6895/libneuralnetworks_sl_driver_mtk_prebuilt.so;DISABLE_CHECKELF;SYMLINK=vendor/lib64/libneuralnetworks_sl_driver_mtk_prebuilt.so;DISABLE_CHECKELF
+vendor/lib64/mt6895/libneuralnetworks_sl_driver_mtk_prebuilt.so;SYMLINK=vendor/lib64/libneuralnetworks_sl_driver_mtk_prebuilt.so
 vendor/lib64/mt6895/libneuron_adapter_mgvi.so;DISABLE_CHECKELF;SYMLINK=vendor/lib64/libneuron_adapter_mgvi.so;DISABLE_CHECKELF
 vendor/lib64/mt6895/libneuron_runtime.5.so;SYMLINK=vendor/lib64/libneuron_runtime.5.so
 vendor/lib64/mt6895/libnir_neon_driver.so;SYMLINK=vendor/lib64/libnir_neon_driver.so
