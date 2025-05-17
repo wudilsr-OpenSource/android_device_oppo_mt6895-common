@@ -33,7 +33,7 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
-    ('vendor.mediatek.hardware.videotelephony@1.0',): lib_fixup_vendor_suffix,
+    'vendor.mediatek.hardware.videotelephony@1.0': lib_fixup_vendor_suffix,
     ('libsink',): lib_fixup_remove,
 }
 
@@ -45,13 +45,19 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.common-V2-ndk_platform.so', 'android.hardware.common-V2-ndk.so'),
     'system_ext/priv-app/ImsService/ImsService.apk': blob_fixup()
         .apktool_patch('blob-patches'),
-    ('system_ext/etc/init/init.vtservice.rc', 'vendor/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc'): blob_fixup()
+    (
+        'system_ext/etc/init/init.vtservice.rc', 
+        'vendor/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc'
+    ): blob_fixup()
         .regex_replace('start', 'enable'),
     'system_ext/lib64/libsink.so': blob_fixup()
         .add_needed('libshim_sink.so'),
     'system_ext/lib64/libsource.so': blob_fixup()
         .add_needed('libui_shim.so'),
-    ('vendor/bin/hw/android.hardware.gnss-service.mediatek', 'vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so'): blob_fixup()
+    (
+        'vendor/bin/hw/android.hardware.gnss-service.mediatek',
+        'vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so'
+    ): blob_fixup()
         .replace_needed('android.hardware.gnss-V1-ndk_platform.so', 'android.hardware.gnss-V1-ndk.so'),
     'vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b': blob_fixup()
         .add_needed('libstagefright_foundation-v33.so')
@@ -61,8 +67,12 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so', 'android.hardware.security.keymint-V1-ndk.so')
         .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
         .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so', 'android.hardware.security.secureclock-V1-ndk.so'),
-    ('vendor/bin/mnld', 'vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so', 'vendor/lib64/liboplus_mtkcam_lightsensorprovider.so',
-    'vendor/lib64/mt6895/libaalservice.so'): blob_fixup()
+    (
+        'vendor/bin/mnld',
+        'vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so',
+        'vendor/lib64/liboplus_mtkcam_lightsensorprovider.so',
+        'vendor/lib64/mt6895/libaalservice.so'
+    ): blob_fixup()
         .add_needed('libshim_sensors.so'),
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .add_needed('libstagefright_foundation-v33.so'),
@@ -82,8 +92,13 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'/my_product/vendor/etc/cust_silky_brightness_%s_%s.xml', b'/vendor/etc/cust_silky_brightness_%s_%s.xml\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
         .binary_regex_replace(b'/my_product/vendor/etc/cust_silky_brightness_%s.xml', b'/vendor/etc/cust_silky_brightness_%s.xml\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
         .replace_needed('libutils.so', 'libutils-v32.so'),
-    ('vendor/lib64/lib3a.ae.pipe.so', 'vendor/lib64/mt6895/lib3a.awbsync.so', 'vendor/lib64/mt6895/lib3a.flash.so',
-    'vendor/lib64/mt6895/lib3a.sensors.color.so', 'vendor/lib64/mt6895/lib3a.sensors.flicker.so'): blob_fixup()
+    (
+        'vendor/lib64/lib3a.ae.pipe.so', 
+        'vendor/lib64/mt6895/lib3a.awbsync.so', 
+        'vendor/lib64/mt6895/lib3a.flash.so',
+        'vendor/lib64/mt6895/lib3a.sensors.color.so', 
+        'vendor/lib64/mt6895/lib3a.sensors.flicker.so'
+    ): blob_fixup()
         .add_needed('liblog.so'),
     'vendor/lib64/mt6983/libneuralnetworks_sl_driver_mtk_prebuilt.so': blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
@@ -98,7 +113,10 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.frameworks.stats-V1-ndk_platform.so', 'android.frameworks.stats-V1-ndk.so'),
     'vendor/lib64/mt6895/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
-    ('vendor/lib64/libnvram.so', 'vendor/lib64/libsysenv.so'): blob_fixup()
+    (
+        'vendor/lib64/libnvram.so',
+        'vendor/lib64/libsysenv.so'
+    ): blob_fixup()
         .add_needed('libbase_shim.so'),
     'vendor/lib64/mt6895/libmtkcam_stdutils.so': blob_fixup()
         .replace_needed('libutils.so', 'libutils-v32.so'),
