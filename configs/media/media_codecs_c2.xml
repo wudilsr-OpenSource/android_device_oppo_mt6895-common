@@ -156,23 +156,6 @@
         </MediaCodec>
     </Decoders>
     <Encoders>
-        <MediaCodec name="c2.mtk.avc.encoder" type="video/avc" >
-            <Alias name="OMX.MTK.VIDEO.ENCODER.AVC" />
-            <Limit name="size" min="160x128" max="3840x2176" />
-            <!-- #ifndef OPLUS_BUG_COMPATIBILITY -->
-            <!-- Jingcheng.Li@MULTIMEDIA.MEDIASERVER.RECORDER, 4290883, 2022/11/03, Modify for Line record fail -->
-            <!--
-            <Limit name="alignment" value="16x16" />
-            -->
-            <!-- #else //OPLUS_BUG_COMPATIBILITY -->
-            <Limit name="alignment" value="8x8" />
-            <!-- #endif //OPLUS_BUG_COMPATIBILITY -->
-            <Limit name="block-size" value="16x16" />
-            <Limit name="concurrent-instances" max="10" />
-            <Limit name="performance-point-3840x2160" value="30" />
-            <Limit name="performance-point-1280x719" value="180" />
-            <Limit name="performance-point-1280x720" value="120" />
-        </MediaCodec>
         <MediaCodec name="c2.mtk.avc.encoder.secure" type="video/avc" >
             <Limit name="size" min="160x128" max="3840x2176" />
             <Limit name="alignment" value="16x16" />
