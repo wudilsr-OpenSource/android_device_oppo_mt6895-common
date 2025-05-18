@@ -79,12 +79,6 @@ Only the three quirks included above are recognized at this point:
 <MediaCodecs>
     <Encoders>
         <!-- MTK codec -->
-        <MediaCodec name="c2.mtk.mpeg4.encoder" type="video/mp4v-es" update="true">
-            <Limit name="measured-frame-rate-176x144" range="1033-2272" />
-        </MediaCodec>
-        <MediaCodec name="c2.mtk.h263.encoder" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="970-2134" />
-        </MediaCodec>
         <MediaCodec name="c2.mtk.hevc.encoder" type="video/hevc" update="true">
 <!-- #ifndef OPLUS_BUG_COMPATIBILITY -->
 <!-- HuXin@MULTIMEDIA.MEDIASERVER.PLAYER.3320458, 2022/03/14, -->
