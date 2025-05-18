@@ -562,7 +562,6 @@ vendor/lib64/mt6895/libmtkcam_ulog.so;SYMLINK=vendor/lib64/libmtkcam_ulog.so
 vendor/lib64/mt6895/libcam.hal3a.v3.ae.v4l2.so;SYMLINK=vendor/lib64/libcam.hal3a.v3.ae.v4l2.so
 vendor/lib64/mt6895/libcameracustom.imgsensor.core.so;SYMLINK=vendor/lib64/libcameracustom.imgsensor.core.so
 vendor/lib64/libcam.hal3a.soisdrv.so
-odm/etc/camera/CameraHWConfiguration.config
 odm/etc/camera/anc_cl_kernel.cache
 vendor/lib64/mt6895/libimgsys_adl.so;SYMLINK=vendor/lib64/libimgsys_adl.so
 vendor/lib64/mt6895/lib3a.sensors.color.so;SYMLINK=vendor/lib64/lib3a.sensors.color.so
